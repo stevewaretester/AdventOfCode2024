@@ -3,7 +3,7 @@ const fs = require('fs');
 //Read in a file
 
 function readFileAsLines(filePath) {
-    var fileContent = null;
+    let fileContent = null;
     try {
         fileContent = fs.readFileSync(filePath, 'utf-8'); // Read file as a string
         const lines = fileContent.split('\n').map(line => line.trim()); // Split into lines
@@ -32,8 +32,8 @@ let left = []
 let right = []
 
  console.log("split into two arrays of left and right")
- for (const line in myLines){
-    const parts = myLines[line].split(/\s+/);
+ for (const line of myLines){
+    const parts = line.split(/\s+/);
     console.log("P: "+parts+" L:"+parts[0]+" R:"+parts[1]);
     left.push(parts[0]);
     right.push(parts[1]);
@@ -52,4 +52,4 @@ let right = []
     console.log("L:"+left[line]+" R:"+right[line]+" D: "+dif+" DS:"+difsum);
  }
 
- console.log("A: "+difsum)
+ console.log("A: "+difsum)//1970720
