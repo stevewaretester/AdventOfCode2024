@@ -21,17 +21,28 @@ test('determineSafe returns 2 for the provided lines', () => {
 });
 
 const { determineSaferp2 } = require('./2p'); // Import the function from 2p.js
-test('determineSafe returns 2 for the provided lines', () => {
+test('determineSaferp2 returns 5 for the provided lines', () => {
     const lines = [
         "7 6 4 2 1", // Safe without removing any level
         "1 2 7 8 9", // Unsafe regardless of which level is removed
         "9 7 6 2 1", // Unsafe regardless of which level is removed
         "1 3 2 4 5", // Safe by removing the second level, 3
         "8 6 4 4 1", // Safe by removing the third level, 4
-        "1 3 6 7 9"  // Safe without removing any level
+        "1 3 6 7 9",  // Safe without removing any level
+        "7 1 2 3 4 5" //Safe by ignoring first level
     ];
     const result = determineSaferp2(lines);
     
-    // Assert that the function returns 4
-    expect(result).toBe(4);
+    // Assert that the function returns 4 - now 5
+    expect(result).toBe(5);
 });
+
+// test('determineSafe 1 for provided line', () => {
+//     const lines = [
+//         "1 3 2 4 5", // Safe by removing the second level, 3
+//     ];
+//     const result = determineSaferp2(lines);
+    
+//     // Assert that the function returns 4
+//     expect(result).toBe(1);
+// });
